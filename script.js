@@ -14,3 +14,12 @@ function getComputerChoice() {
 
 let computerChoice = getComputerChoice();
 console.log(computerChoice);
+
+// A function that asks the player choice and return it always lowercase
+function getPlayerChoice() {
+    let playerChoice = prompt("Your turn now. Rock - Paper - Scissors?: ").toLowerCase();
+    return playerChoice;
+}
+
+let playerChoice = getPlayerChoice();
+console.log(playerChoice);
