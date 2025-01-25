@@ -44,13 +44,21 @@ function playRound(computer, player) {
     }
 }
 
+// Function keeping track of the scores and announcing the winner
+function announceWinner() {
+    if (computerScore > playerScore) {
+        console.log(`Computer Score: ${computerScore} Player Score: ${playerScore}. Computer wins`);
+    }
+    else {
+        console.log(`Computer Score: ${computerScore} Player Score: ${playerScore}. You win`);
+    }
+}
 
 function playGame() {
     while ((roundNumber <= 5)) {
         playRound(getComputerChoice(), getPlayerChoice());
-        console.log(`Computer Score: ${computerScore}`);
-        console.log(`Player Score: ${playerScore}`);
     }
+    announceWinner()
 }
 
 playGame();
