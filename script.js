@@ -23,3 +23,8 @@ function getPlayerChoice() {
 
 let playerChoice = getPlayerChoice();
 console.log(playerChoice);
+
+// Set variables to keep track of Computer and Player scores
+let computerScore = 0
+let playerScore = 0
+
