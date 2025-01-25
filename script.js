@@ -36,9 +36,9 @@ function playRound(computer, player) {
         playerScore++
     }
     else if (
-        computerChoice === "rock" && playerChoice === "scissors" ||
-        computerChoice === "paper" && playerChoice === "rock" ||
-        computerChoice === "scissors" && playerChoice === "paper") {
+        computer === "rock" && player === "scissors" ||
+        computer === "paper" && player === "rock" ||
+        computer === "scissors" && player === "paper") {
         console.log("Computer wins!")
         computerScore++
     }
