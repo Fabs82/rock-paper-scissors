@@ -46,11 +46,14 @@ function playRound(computer, player) {
 
 // Function keeping track of the scores and announcing the winner
 function announceWinner() {
-    if (computerScore > playerScore) {
-        console.log(`Computer Score: ${computerScore} Player Score: ${playerScore}. Computer wins`);
+    if (computerScore === playerScore) {
+        return (`Computer Score: ${computerScore} Player Score: ${playerScore}. IT'S A DRAW`);
+    }
+    else if (computerScore > playerScore) {
+        return (`Computer Score: ${computerScore} Player Score: ${playerScore}. COMPUTER WINS`);
     }
     else {
-        console.log(`Computer Score: ${computerScore} Player Score: ${playerScore}. You win`);
+        return (`Computer Score: ${computerScore} Player Score: ${playerScore}. YOU WIN`);
     }
 }
 
@@ -58,7 +61,7 @@ function playGame() {
     while ((roundNumber <= 5)) {
         playRound(getComputerChoice(), getPlayerChoice());
     }
-    announceWinner()
+    console.log(announceWinner());
 }
 
 playGame();
