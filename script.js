@@ -28,3 +28,26 @@ console.log(playerChoice);
 let computerScore = 0
 let playerScore = 0
 
+// Function for one round
+function playRound(computer, player) {
+    if (computer === player) {
+        console.log("It`s a draw.")
+        computerScore++
+        playerScore++
+    }
+    else if (
+        computerChoice === "rock" && playerChoice === "scissors" ||
+        computerChoice === "paper" && playerChoice === "rock" ||
+        computerChoice === "scissors" && playerChoice === "paper") {
+        console.log("Computer wins!")
+        computerScore++
+    }
+    else {
+        console.log("You win!")
+        playerScore++
+    }
+}
+
+playRound(computerChoice, playerChoice)
+console.log(`Computer Score: ${computerScore}`)
+console.log(`Player Score: ${playerScore}`)
