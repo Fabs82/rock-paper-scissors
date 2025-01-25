@@ -39,11 +39,11 @@ function playRound(computer, player) {
         computer === "rock" && player === "scissors" ||
         computer === "paper" && player === "rock" ||
         computer === "scissors" && player === "paper") {
-        console.log("Computer wins!")
+        console.log(`Computer wins! ${computer} beats ${player}`)
         computerScore++
     }
     else {
-        console.log("You win!")
+        console.log(`You win! ${player} beats ${computer}`)
         playerScore++
     }
 }
