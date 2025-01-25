@@ -14,8 +14,14 @@ function getComputerChoice() {
 
 // Function asking the player to choose using a prompt
 function getPlayerChoice() {
-    let playerChoice = prompt("Your turn now. Rock - Paper - Scissors?: ").toLowerCase();
-    return playerChoice;
+    let playerChoice = prompt("Your turn now. Rock - Paper - Scissors? Choose one: ").toLowerCase();
+    if (playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors") {
+        return playerChoice;
+    } else {
+        prompt("Invalid Entry - Please choose between Rock Paper and Scissors")
+        getPlayerChoice()
+    }
+
 }
 
 // Function for one round. Take computer and player choices as parameters, check the winner and return a value 0 - 1 - 2
