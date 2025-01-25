@@ -17,32 +17,28 @@ function getPlayerChoice() {
     return playerChoice;
 }
 
-
-let computerScore = 0;
-let playerScore = 0;
-
-// Function for one round
+// Function for one round. Take computer and player choices as parameters, check the winner and return a value 0 - 1 - 2
 function playRound(computer, player) {
     console.log(`You chose ${player}. Computer chose ${computer}`);
     if (computer === player) {
         console.log("It`s a draw.");
+        return 0;
     }
     else if (
         computer === "rock" && player === "scissors" ||
         computer === "paper" && player === "rock" ||
         computer === "scissors" && player === "paper") {
         console.log(`Computer wins! ${computer} beats ${player}`);
-        computerScore++;
+        return 1;
     }
     else {
         console.log(`You win! ${player} beats ${computer}`);
-        playerScore++;
-
+        return 2;
     }
 }
 
 // Function keeping track of the scores and announcing the winner
-function announceWinner() {
+function announceWinner(computerScore, playerScore) {
     if (computerScore === playerScore) {
         return (`Computer Score: ${computerScore} Player Score: ${playerScore}. IT'S A DRAW`);
     }
@@ -53,16 +49,25 @@ function announceWinner() {
         return (`Computer Score: ${computerScore} Player Score: ${playerScore}. YOU WIN`);
     }
 }
-
+// Function that manages the entire game using a while loop
 function playGame() {
     let roundNumber = 1;
+    let computerScore = 0;
+    let playerScore = 0;
 
     while ((roundNumber <= 5)) {
-        console.log(`ROUND ${roundNumber}`)
-        playRound(getComputerChoice(), getPlayerChoice());
+        console.log(`ROUND ${roundNumber}`);
+        let result = playRound(getComputerChoice(), getPlayerChoice()); // catch the return value from playRound 
+
+        if (result === 1) {
+            computerScore++;
+        }
+        else if (result === 2) {
+            playerScore++;
+        }
         roundNumber++;
     }
-    console.log(announceWinner());
+    console.log(announceWinner(computerScore, playerScore));
 }
 
 playGame();
