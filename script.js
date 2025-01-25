@@ -12,28 +12,20 @@ function getComputerChoice() {
     }
 }
 
-let computerChoice = getComputerChoice();
-console.log(computerChoice);
-
-// A function that asks the player choice and return it always lowercase
 function getPlayerChoice() {
     let playerChoice = prompt("Your turn now. Rock - Paper - Scissors?: ").toLowerCase();
     return playerChoice;
 }
 
-let playerChoice = getPlayerChoice();
-console.log(playerChoice);
 
-// Set variables to keep track of Computer and Player scores
 let computerScore = 0
 let playerScore = 0
 
 // Function for one round
 function playRound(computer, player) {
+    console.log(`You chose ${player}. Computer chose ${computer}`)
     if (computer === player) {
         console.log("It`s a draw.")
-        computerScore++
-        playerScore++
     }
     else if (
         computer === "rock" && player === "scissors" ||
@@ -48,6 +40,6 @@ function playRound(computer, player) {
     }
 }
 
-playRound(computerChoice, playerChoice)
+playRound(getComputerChoice(), getPlayerChoice())
 console.log(`Computer Score: ${computerScore}`)
 console.log(`Player Score: ${playerScore}`)
