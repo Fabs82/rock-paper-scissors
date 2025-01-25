@@ -59,11 +59,17 @@ function playGame() {
         console.log(`ROUND ${roundNumber}`);
         let result = playRound(getComputerChoice(), getPlayerChoice()); // catch the return value from playRound 
 
-        if (result === 1) {
-            computerScore++;
-        }
-        else if (result === 2) {
-            playerScore++;
+        switch (result) {
+            case 1:
+                computerScore++;
+                break;
+
+            case 2:
+                playerScore++;
+                break;
+
+            default:
+                break;
         }
         roundNumber++;
     }
