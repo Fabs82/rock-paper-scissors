@@ -20,14 +20,12 @@ function getPlayerChoice() {
 
 let computerScore = 0;
 let playerScore = 0;
-let roundNumber = 1;
 
 // Function for one round
 function playRound(computer, player) {
-    console.log(`ROUND ${roundNumber}. You chose ${player}. Computer chose ${computer}`);
+    console.log(`You chose ${player}. Computer chose ${computer}`);
     if (computer === player) {
         console.log("It`s a draw.");
-        roundNumber++;
     }
     else if (
         computer === "rock" && player === "scissors" ||
@@ -35,12 +33,11 @@ function playRound(computer, player) {
         computer === "scissors" && player === "paper") {
         console.log(`Computer wins! ${computer} beats ${player}`);
         computerScore++;
-        roundNumber++;
     }
     else {
         console.log(`You win! ${player} beats ${computer}`);
         playerScore++;
-        roundNumber++;
+
     }
 }
 
@@ -58,8 +55,12 @@ function announceWinner() {
 }
 
 function playGame() {
+    let roundNumber = 1;
+
     while ((roundNumber <= 5)) {
+        console.log(`ROUND ${roundNumber}`)
         playRound(getComputerChoice(), getPlayerChoice());
+        roundNumber++;
     }
     console.log(announceWinner());
 }
