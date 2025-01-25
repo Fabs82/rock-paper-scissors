@@ -12,6 +12,7 @@ function getComputerChoice() {
     }
 }
 
+// Function asking the player to choose using a prompt
 function getPlayerChoice() {
     let playerChoice = prompt("Your turn now. Rock - Paper - Scissors?: ").toLowerCase();
     return playerChoice;
@@ -71,7 +72,7 @@ function playGame() {
             default:
                 break;
         }
-        roundNumber++;
+        roundNumber++; // increase the round number
     }
     console.log(announceWinner(computerScore, playerScore));
 }
