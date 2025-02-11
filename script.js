@@ -14,20 +14,22 @@ function getComputerChoice() {
 
 // Function for one round. Take computer and player choices as parameters, check the winner and return a value 0 - 1 - 2
 function playRound(computer, player) {
-    console.log(`You chose ${player}. Computer chose ${computer}`);
+    const roundResult = document.querySelector(".result");
+    const message = `You chose ${player}. Computer chose ${computer} - `;
+
     if (computer === player) {
-        console.log("It`s a draw.");
+        roundResult.textContent = message + "It`s a draw.";
         return 0;
     }
     else if (
         computer === "rock" && player === "scissors" ||
         computer === "paper" && player === "rock" ||
         computer === "scissors" && player === "paper") {
-        console.log(`Computer wins! ${computer} beats ${player}`);
+        roundResult.textContent = message + `Computer wins! ${computer} beats ${player}`;
         return 1;
     }
     else {
-        console.log(`You win! ${player} beats ${computer}`);
+        roundResult.textContent = message + `You win! ${player} beats ${computer}`;
         return 2;
     }
 }
@@ -42,18 +44,32 @@ function announceWinner(computerScore, playerScore) {
     }
     else {
         return (`Computer Score: ${computerScore} Player Score: ${playerScore}. YOU WIN`);
-    }
-}
-// Function that manages the entire game using a while loop
+    };
+};
+
+// Function that manages the entire game 
 function playGame() {
-    let roundNumber = 1;
+    const buttonContainer = document.querySelector(".buttonContainer");
+    const winnerResult = document.querySelector(".winnerResult");
     let computerScore = 0;
     let playerScore = 0;
 
-    while ((roundNumber <= 5)) {
-        console.log(`ROUND ${roundNumber}`);
-        let result = playRound(getComputerChoice(), playerSelection); // catch the return value from playRound 
+    buttonContainer.addEventListener("click", (event) => {
+        switch (event.target.textContent.toLowerCase()) {
+            case "rock":
+                playerChoice = "rock";
+                break;
+            case "paper":
+                playerChoice = "paper";
+                break;
+            case "scissors":
+                playerChoice = "scissors";
+                break;
+            default:
+                return; // or handle invalid clicks if needed
+        };
 
+        let result = playRound(getComputerChoice(), playerChoice);
         switch (result) {
             case 1:
                 computerScore++;
@@ -62,23 +78,14 @@ function playGame() {
             case 2:
                 playerScore++;
                 break;
-
-            default:
-                break;
         }
-        roundNumber++; // increase the round number
-    }
-    console.log(announceWinner(computerScore, playerScore));
-}
+        if (computerScore === 5 || playerScore === 5) {
+            winnerResult.textContent = announceWinner(computerScore, playerScore);
+            buttons = document.querySelectorAll(".btn");
+            buttons.forEach(button => button.disabled = true);
+        };
+    });
 
-//playGame();
+};
 
-
-const rockBtn = document.querySelector("#rockBtn");
-const paperBtn = document.querySelector("#paperBtn");
-const scissorsBtn = document.querySelector("#scissorsBtn");
-const roundResult = document.querySelector(".result")
-
-rockBtn.addEventListener("click", () => playRound(getComputerChoice(), "rock"));
-paperBtn.addEventListener("click", () => playRound(getComputerChoice(), "paper"));
-scissorsBtn.addEventListener("click", () => playRound(getComputerChoice(), "scissors"));
+playGame();
