@@ -51,6 +51,7 @@ function announceWinner(computerScore, playerScore) {
 function playGame() {
     const buttonContainer = document.querySelector(".buttonContainer");
     const winnerResult = document.querySelector(".winnerResult");
+    const currentScore = document.querySelector(".currentScore");
     let computerScore = 0;
     let playerScore = 0;
 
@@ -79,6 +80,7 @@ function playGame() {
                 playerScore++;
                 break;
         }
+        currentScore.textContent = `- Current Score - Computer: ${computerScore} vs Player: ${playerScore}`
         if (computerScore === 5 || playerScore === 5) {
             winnerResult.textContent = announceWinner(computerScore, playerScore);
             buttons = document.querySelectorAll(".btn");
