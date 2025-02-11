@@ -17,12 +17,7 @@ function playRound(computer, player) {
     const roundResult = document.querySelector(".result");
     const message = `You chose ${player}. Computer chose ${computer} - `;
 
-    if (computer === player) {
-        roundResult.textContent = message + "It`s a draw.";
-        return 0;
-    }
-    else if (
-        computer === "fireball" && player === "lightning plasma" ||
+    if (computer === "fireball" && player === "lightning plasma" ||
         computer === "ray of frost" && player === "fireball" ||
         computer === "lightning plasma" && player === "ray of frost") {
         roundResult.textContent = message + `Computer wins! ${computer} beats ${player}`;
@@ -31,8 +26,8 @@ function playRound(computer, player) {
     else {
         roundResult.textContent = message + `You win! ${player} beats ${computer}`;
         return 2;
-    }
-}
+    };
+};
 
 // Function keeping track of the scores and announcing the winner
 function announceWinner(computerScore, playerScore) {
@@ -66,8 +61,6 @@ function playGame() {
             case "lightning plasma":
                 playerChoice = "lightning plasma";
                 break;
-            default:
-                return; // or handle invalid clicks if needed
         };
 
         let result = playRound(getComputerChoice(), playerChoice);
@@ -85,6 +78,18 @@ function playGame() {
             winnerResult.textContent = announceWinner(computerScore, playerScore);
             buttons = document.querySelectorAll(".btn");
             buttons.forEach(button => button.disabled = true);
+
+            const resetButton = document.createElement("button");
+            document.body.appendChild(resetButton);
+            resetButton.textContent = "NEW GAME"
+            resetButton.addEventListener("click", () => {
+                computerScore = 0;
+                playerScore = 0;
+                winnerResult.textContent = "";
+                currentScore.textContent = `- Current Score - Computer: ${computerScore} vs Player: ${playerScore}`;
+                buttons.forEach(button => button.disabled = false)
+                document.body.removeChild(resetButton);
+            });
         };
     });
 
