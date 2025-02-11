@@ -2,13 +2,13 @@
 function getComputerChoice() {
     let number = Math.floor(Math.random() * 3) + 1;
     if (number === 1) {
-        return "rock";
+        return "fireball";
     }
     else if (number === 2) {
-        return "paper";
+        return "ray of frost";
     }
     else {
-        return "scissors";
+        return "lightning plasma";
     }
 }
 
@@ -22,9 +22,9 @@ function playRound(computer, player) {
         return 0;
     }
     else if (
-        computer === "rock" && player === "scissors" ||
-        computer === "paper" && player === "rock" ||
-        computer === "scissors" && player === "paper") {
+        computer === "fireball" && player === "lightning plasma" ||
+        computer === "ray of frost" && player === "fireball" ||
+        computer === "lightning plasma" && player === "ray of frost") {
         roundResult.textContent = message + `Computer wins! ${computer} beats ${player}`;
         return 1;
     }
@@ -56,14 +56,14 @@ function playGame() {
 
     buttonContainer.addEventListener("click", (event) => {
         switch (event.target.textContent.toLowerCase()) {
-            case "rock":
-                playerChoice = "rock";
+            case "fireball":
+                playerChoice = "fireball";
                 break;
-            case "paper":
-                playerChoice = "paper";
+            case "ray of frost":
+                playerChoice = "ray of frost";
                 break;
-            case "scissors":
-                playerChoice = "scissors";
+            case "lightning plasma":
+                playerChoice = "lightning plasma";
                 break;
             default:
                 return; // or handle invalid clicks if needed
