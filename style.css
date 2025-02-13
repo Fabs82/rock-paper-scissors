@@ -11,6 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     gap: 2rem;
+    background-image: url("./images/dark_souls_3_the_ringed_city-6.jpeg");
 }
 
 .mainGameContainer {
