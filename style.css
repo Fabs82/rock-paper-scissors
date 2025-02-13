@@ -25,10 +25,12 @@ body {
     align-items: center;
     justify-content: center;
     gap: 4rem;
-    border: 3px solid #3a270e;
-    background-color: #3741515b;
+    border: 3px solid #9ee3ec;
+    border-radius: 16px;
+    background-color: #374151a6;
     padding: 5rem 3rem;
-
+    max-width: 90%;
+    min-height: 85%;
 }
 
 .buttonContainer {
@@ -41,12 +43,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
 }
 
 .btn {
-    background-color: #111827;
+    background-color: #142242;
     border: 1px solid transparent;
     border-radius: .75rem;
     box-sizing: border-box;
@@ -76,4 +78,25 @@ body {
     box-shadow: none;
     outline: 2px solid transparent;
     outline-offset: 2px;
+}
+
+#fireballBtn {
+    color: rgb(253, 101, 0);
+}
+
+#frostBtn {
+    color: rgb(0, 255, 255);
+}
+
+#ligthingBtn {
+    color: rgb(251, 255, 0);
+}
+
+.result {
+    line-height: 2;
+    text-align: center;
+}
+
+.currentScore {
+    color: rgb(59, 255, 141);
 }

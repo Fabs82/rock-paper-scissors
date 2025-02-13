@@ -8,7 +8,7 @@ function getComputerChoice() {
         return "ray of frost";
     }
     else {
-        return "lightning plasma";
+        return "lightning";
     }
 }
 
@@ -22,9 +22,9 @@ function playRound(computer, player, roundResult) {
         return 0;
     }
     else if (
-        computer === "fireball" && player === "lightning plasma" ||
+        computer === "fireball" && player === "lightning" ||
         computer === "ray of frost" && player === "fireball" ||
-        computer === "lightning plasma" && player === "ray of frost") {
+        computer === "lightning" && player === "ray of frost") {
         roundResult.textContent = message + `Computer wins! ${computer} beats ${player}`;
         return 1;
     }
@@ -54,6 +54,7 @@ function playGame() {
     const currentScore = document.querySelector(".currentScore");
     let computerScore = 0;
     let playerScore = 0;
+    let playerChoice
     const roundResult = document.querySelector(".result");
 
     buttonContainer.addEventListener("click", (event) => {
@@ -64,8 +65,8 @@ function playGame() {
             case "ray of frost":
                 playerChoice = "ray of frost";
                 break;
-            case "lightning plasma":
-                playerChoice = "lightning plasma";
+            case "lightning":
+                playerChoice = "lightning";
                 break;
         };
 
@@ -93,7 +94,7 @@ function playGame() {
                 computerScore = 0;
                 playerScore = 0;
                 winnerResult.textContent = "";
-                currentScore.textContent = `- Current Score - Computer: ${computerScore} vs Player: ${playerScore}`;
+                currentScore.textContent = `- CURRENT SCORE - Computer: ${computerScore} vs Player: ${playerScore}`;
                 roundResult.textContent = "";
                 buttons.forEach(button => button.disabled = false)
                 document.body.removeChild(resetButton);
