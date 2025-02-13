@@ -17,7 +17,12 @@ function playRound(computer, player) {
     const roundResult = document.querySelector(".result");
     const message = `You chose ${player}. Computer chose ${computer} - `;
 
-    if (computer === "fireball" && player === "lightning plasma" ||
+    if (computer === player) {
+        roundResult.textContent = message + "It`s a draw.";
+        return 0;
+    }
+    else if (
+        computer === "fireball" && player === "lightning plasma" ||
         computer === "ray of frost" && player === "fireball" ||
         computer === "lightning plasma" && player === "ray of frost") {
         roundResult.textContent = message + `Computer wins! ${computer} beats ${player}`;
@@ -92,7 +97,6 @@ function playGame() {
             });
         };
     });
-
 };
 
 playGame();
