@@ -85,6 +85,7 @@ function playGame() {
             buttons.forEach(button => button.disabled = true);
 
             const resetButton = document.createElement("button");
+            resetButton.classList.add("btn")
             document.body.appendChild(resetButton);
             resetButton.textContent = "NEW GAME"
             resetButton.addEventListener("click", () => {

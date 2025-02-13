@@ -4,14 +4,25 @@
     font-family: "Press Start 2P", serif;
 }
 
-.mainGameContainer {
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
+    gap: 2rem;
+}
+
+.mainGameContainer {
+    height: 50vh;
     display: flex;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 4rem;
+    border: 1px solid #374151;
+
 }
 
 .buttonContainer {
