@@ -13,8 +13,8 @@ function getComputerChoice() {
 }
 
 // Function for one round. Take computer and player choices as parameters, check the winner and return a value 0 - 1 - 2
-function playRound(computer, player) {
-    const roundResult = document.querySelector(".result");
+function playRound(computer, player, roundResult) {
+
     const message = `You chose ${player}. Computer chose ${computer} - `;
 
     if (computer === player) {
@@ -54,6 +54,7 @@ function playGame() {
     const currentScore = document.querySelector(".currentScore");
     let computerScore = 0;
     let playerScore = 0;
+    const roundResult = document.querySelector(".result");
 
     buttonContainer.addEventListener("click", (event) => {
         switch (event.target.textContent.toLowerCase()) {
@@ -68,7 +69,7 @@ function playGame() {
                 break;
         };
 
-        let result = playRound(getComputerChoice(), playerChoice);
+        let result = playRound(getComputerChoice(), playerChoice, roundResult);
         switch (result) {
             case 1:
                 computerScore++;
@@ -93,6 +94,7 @@ function playGame() {
                 playerScore = 0;
                 winnerResult.textContent = "";
                 currentScore.textContent = `- Current Score - Computer: ${computerScore} vs Player: ${playerScore}`;
+                roundResult.textContent = "";
                 buttons.forEach(button => button.disabled = false)
                 document.body.removeChild(resetButton);
             });
