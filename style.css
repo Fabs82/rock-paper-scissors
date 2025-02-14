@@ -96,6 +96,9 @@ body {
     text-align: center;
 }
 
-.currentScore {
-    color: rgb(59, 255, 141);
+h1 {
+    color: transparent;
+    background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+    background-clip: text;
+    -webkit-background-clip: text;
 }
