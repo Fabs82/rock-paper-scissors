@@ -55,7 +55,7 @@ function playGame() {
     const currentScore = document.querySelector(".currentScore");
     let computerScore = 0;
     let playerScore = 0;
-    let playerChoice
+    let playerChoice;
     const roundResult = document.querySelector(".result");
 
     buttonContainer.addEventListener("click", (event) => {
@@ -81,23 +81,23 @@ function playGame() {
                 playerScore++;
                 break;
         }
-        currentScore.textContent = `- Current Score - Computer: ${computerScore} vs Player: ${playerScore}`
+        currentScore.textContent = `- Current Score - Computer: ${computerScore} vs Player: ${playerScore}`;
         if (computerScore === 5 || playerScore === 5) {
             winnerResult.textContent = announceWinner(computerScore, playerScore);
             buttons = document.querySelectorAll(".btn");
             buttons.forEach(button => button.disabled = true);
 
             const resetButton = document.createElement("button");
-            resetButton.classList.add("btn")
+            resetButton.classList.add("btn");
             mainGameContainer.appendChild(resetButton);
-            resetButton.textContent = "NEW GAME"
+            resetButton.textContent = "NEW GAME";
             resetButton.addEventListener("click", () => {
                 computerScore = 0;
                 playerScore = 0;
                 winnerResult.textContent = "";
                 currentScore.textContent = `- CURRENT SCORE - Computer: ${computerScore} vs Player: ${playerScore}`;
                 roundResult.textContent = "";
-                buttons.forEach(button => button.disabled = false)
+                buttons.forEach(button => button.disabled = false);
                 mainGameContainer.removeChild(resetButton);
             });
         };
