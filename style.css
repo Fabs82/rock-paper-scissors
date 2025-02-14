@@ -11,7 +11,7 @@ body {
     align-items: center;
     height: 100vh;
     gap: 1.5rem;
-    background-image: url("./images/476658.jpg");
+    background-image: url("./images/the-last-spell-warriors-pixal-art.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -29,7 +29,8 @@ body {
     border-radius: 16px;
     background-color: #374151a6;
     padding: 5rem 3rem;
-    min-width: 90%;
+    min-width: 85vw;
+    min-height: 85vh;
 }
 
 .buttonContainer {
@@ -66,6 +67,7 @@ body {
     width: 200px;
     max-height: 50px;
     padding: 12px 0;
+    box-shadow: rgb(255, 255, 255) 0px 5px 10px;
 }
 
 .btn:hover {
@@ -73,7 +75,6 @@ body {
 }
 
 .btn:focus {
-    box-shadow: none;
     outline: 2px solid transparent;
     outline-offset: 2px;
 }
