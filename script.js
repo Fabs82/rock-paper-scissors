@@ -15,7 +15,7 @@ function getComputerChoice() {
 // Function for one round. Take computer and player choices as parameters, check the winner and return a value 0 - 1 - 2
 function playRound(computer, player, roundResult) {
 
-    const message = `You chose ${player}. Computer chose ${computer} - `;
+    const message = `Computer chose ${computer} - `;
 
     if (computer === player) {
         roundResult.textContent = message + "It`s a draw.";
@@ -53,12 +53,14 @@ function playGame() {
     const buttonContainer = document.querySelector(".buttonContainer");
     const winnerResult = document.querySelector(".winnerResult");
     const currentScore = document.querySelector(".currentScore");
+    const audioMusic = document.querySelector("#audio");
     let computerScore = 0;
     let playerScore = 0;
     let playerChoice;
     const roundResult = document.querySelector(".result");
 
     buttonContainer.addEventListener("click", (event) => {
+        audioMusic.play()
         switch (event.target.textContent.toLowerCase()) {
             case "fireball":
                 playerChoice = "fireball";
